@@ -12,7 +12,7 @@ public class Config {
          
         try {
              
-             String url = "jdbc:mysql://localhost:3306/Pembeli";
+             String url = "jdbc:mysql://localhost:3306/Aplikasi_Pembelian_Laptop";
              String user = "root";
              String pass = "";
              

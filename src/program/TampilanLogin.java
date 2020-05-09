@@ -40,12 +40,12 @@ public class TampilanLogin extends javax.swing.JFrame {
         LoginPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnKembali = new javax.swing.JButton();
+        txtLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("LOGIN PEMBELI");
+        setTitle("LOGIN SEBAGAI PEMBELI");
 
         LoginPanel.setBackground(new java.awt.Color(255, 153, 0));
 
@@ -54,12 +54,6 @@ public class TampilanLogin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Masukan Id_Pembeli :");
-
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
-            }
-        });
 
         btnLogin.setBackground(new java.awt.Color(0, 255, 0));
         btnLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -92,14 +86,14 @@ public class TampilanLogin extends javax.swing.JFrame {
                 .addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LoginPanelLayout.createSequentialGroup()
                         .addComponent(btnKembali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 306, Short.MAX_VALUE)
                         .addComponent(btnLogin)
                         .addGap(68, 68, 68))
                     .addGroup(LoginPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(198, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,11 +126,6 @@ public class TampilanLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_txtLoginActionPerformed
-
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
         // TODO add your handling code here:
         
@@ -165,7 +154,7 @@ public class TampilanLogin extends javax.swing.JFrame {
             else {
                 
                 st = conn.createStatement();
-                String sql =("SELECT * FROM pembeli WHERE Id_Pembeli ='"+txtLogin.getText()+"'");
+                String sql = ("SELECT * FROM pembeli WHERE Id_Pembeli ='"+txtLogin.getText()+"'");
                 java.sql.Connection con = (Connection) Config.configDB();
                 java.sql.Statement stm = con.createStatement();
                 java.sql.ResultSet res = stm.executeQuery(sql);
@@ -225,6 +214,6 @@ public class TampilanLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtLogin;
+    private javax.swing.JPasswordField txtLogin;
     // End of variables declaration//GEN-END:variables
 }

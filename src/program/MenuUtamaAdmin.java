@@ -7,6 +7,10 @@ package program;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -19,6 +23,10 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
     /**
      * Creates new form MenuUtamaAdmin
      */
+    
+    Connection conn = null;
+    Statement st = null;
+    
     public MenuUtamaAdmin() {
         initComponents();
     }
@@ -84,6 +92,37 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
             }
     }
     
+    private void tampilkan_datatransaksi(){
+        
+        DefaultTableModel mdl1 = new DefaultTableModel ();
+        mdl1.addColumn("NO ");
+        mdl1.addColumn("Id_Pembeli ");
+        mdl1.addColumn("Nama Laptop ");
+        mdl1.addColumn("Harga ");
+        
+        try {
+            
+            int no = 1;
+            String sql = "SELECT * from Transaksi";
+            java.sql.Connection con = (Connection) Config.configDB();
+            java.sql.Statement stm1 = con.createStatement();
+            java.sql.ResultSet res = stm1.executeQuery(sql);
+            
+            while(res.next()){
+                mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3)});
+                
+            }
+            
+            TabelTransaksiAdmin.setModel(mdl1);
+                
+            }
+        
+            catch (SQLException e){
+                System.out.println("Error : " + e.getMessage());
+            }
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -100,15 +139,23 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
         btnTampilkanDataSaran = new javax.swing.JToggleButton();
         btnKembaliAdmin = new javax.swing.JToggleButton();
         btnKeluarAdmin = new javax.swing.JToggleButton();
+        btnTampilkanDataTransaksi = new javax.swing.JToggleButton();
         IsiMenuUtamaAdmin = new javax.swing.JPanel();
         IsiDataPembeli = new javax.swing.JPanel();
         TabelPembeli = new javax.swing.JScrollPane();
         TabelPembeliAdmin = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        IdPembeli = new javax.swing.JTextField();
+        btnCari = new javax.swing.JToggleButton();
         IsiDataSaran = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        TabelSaran = new javax.swing.JScrollPane();
         TabelSaranAdmin = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        IsiDataTransaksi = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelTransaksiAdmin = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ADMIN");
@@ -149,6 +196,14 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
             }
         });
 
+        btnTampilkanDataTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-profiles-20.png"))); // NOI18N
+        btnTampilkanDataTransaksi.setText("Data Transaksi");
+        btnTampilkanDataTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTampilkanDataTransaksiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuUtamaAdminLayout = new javax.swing.GroupLayout(MenuUtamaAdmin);
         MenuUtamaAdmin.setLayout(MenuUtamaAdminLayout);
         MenuUtamaAdminLayout.setHorizontalGroup(
@@ -159,7 +214,8 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
                     .addComponent(btnTampilkanDataAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTampilkanDataSaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnKembaliAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnKeluarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnKeluarAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTampilkanDataTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         MenuUtamaAdminLayout.setVerticalGroup(
@@ -170,13 +226,17 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnTampilkanDataSaran, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnTampilkanDataTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnKembaliAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(43, 43, 43)
                 .addComponent(btnKeluarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         IsiMenuUtamaAdmin.setLayout(new java.awt.CardLayout());
+
+        IsiDataPembeli.setBackground(new java.awt.Color(255, 255, 255));
 
         TabelPembeliAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,31 +251,55 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
         ));
         TabelPembeli.setViewportView(TabelPembeliAdmin);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Data Pembeli");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Cari data Pembeli berdasarkan Id_Pembeli :");
+
+        btnCari.setText("Cari");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout IsiDataPembeliLayout = new javax.swing.GroupLayout(IsiDataPembeli);
         IsiDataPembeli.setLayout(IsiDataPembeliLayout);
         IsiDataPembeliLayout.setHorizontalGroup(
             IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataPembeliLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
-                .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(TabelPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99))
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(IsiDataPembeliLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(TabelPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
         IsiDataPembeliLayout.setVerticalGroup(
             IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataPembeliLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
+                .addContainerGap(164, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TabelPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
+                .addGap(18, 18, 18)
+                .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
 
         IsiMenuUtamaAdmin.add(IsiDataPembeli, "card2");
+
+        IsiDataSaran.setBackground(new java.awt.Color(255, 255, 255));
 
         TabelSaranAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -228,33 +312,74 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(TabelSaranAdmin);
+        TabelSaran.setViewportView(TabelSaranAdmin);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Data Saran");
 
         javax.swing.GroupLayout IsiDataSaranLayout = new javax.swing.GroupLayout(IsiDataSaran);
         IsiDataSaran.setLayout(IsiDataSaranLayout);
         IsiDataSaranLayout.setHorizontalGroup(
             IsiDataSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataSaranLayout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+            .addGroup(IsiDataSaranLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
                 .addGroup(IsiDataSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(96, 96, 96))
+                    .addComponent(TabelSaran, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         IsiDataSaranLayout.setVerticalGroup(
             IsiDataSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataSaranLayout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
+                .addContainerGap(165, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+                .addComponent(TabelSaran, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173))
         );
 
         IsiMenuUtamaAdmin.add(IsiDataSaran, "card3");
+
+        IsiDataTransaksi.setBackground(new java.awt.Color(255, 255, 255));
+
+        TabelTransaksiAdmin.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TabelTransaksiAdmin);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Data Transaksi");
+
+        javax.swing.GroupLayout IsiDataTransaksiLayout = new javax.swing.GroupLayout(IsiDataTransaksi);
+        IsiDataTransaksi.setLayout(IsiDataTransaksiLayout);
+        IsiDataTransaksiLayout.setHorizontalGroup(
+            IsiDataTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IsiDataTransaksiLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addGroup(IsiDataTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        IsiDataTransaksiLayout.setVerticalGroup(
+            IsiDataTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataTransaksiLayout.createSequentialGroup()
+                .addContainerGap(163, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
+        );
+
+        IsiMenuUtamaAdmin.add(IsiDataTransaksi, "card4");
 
         javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
         bodyPanel.setLayout(bodyPanelLayout);
@@ -289,7 +414,6 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
     private void btnTampilkanDataSaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilkanDataSaranActionPerformed
         // TODO add your handling code here:
         
-        //Menghapus
         IsiMenuUtamaAdmin.removeAll();
         IsiMenuUtamaAdmin.repaint();
         IsiMenuUtamaAdmin.revalidate();
@@ -338,6 +462,59 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnKeluarAdminActionPerformed
 
+    private void btnTampilkanDataTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilkanDataTransaksiActionPerformed
+        // TODO add your handling code here:
+        
+        //Menghapus
+        IsiMenuUtamaAdmin.removeAll();
+        IsiMenuUtamaAdmin.repaint();
+        IsiMenuUtamaAdmin.revalidate();
+        
+        //Menampilkan isi Home
+        IsiMenuUtamaAdmin.add(IsiDataTransaksi);
+        IsiMenuUtamaAdmin.repaint();
+        IsiMenuUtamaAdmin.revalidate();
+        
+        tampilkan_datatransaksi();
+    }//GEN-LAST:event_btnTampilkanDataTransaksiActionPerformed
+
+    private void tampil_sortId(){
+        
+        DefaultTableModel mdl1 = new DefaultTableModel ();
+        mdl1.addColumn("NO ");
+        mdl1.addColumn("Nama ");
+        mdl1.addColumn("Id_Pembeli ");
+        mdl1.addColumn("Alamat ");
+        mdl1.addColumn("No Hp ");
+        mdl1.addColumn("Email ");
+        
+        try{
+            
+           
+            int no = 1;
+            String sql = ("SELECT * from pembeli WHERE Id_Pembeli = '"+IdPembeli.getText()+"'");
+            java.sql.Connection con = (Connection) Config.configDB();
+            java.sql.Statement stm1 = con.createStatement();
+            java.sql.ResultSet res = stm1.executeQuery(sql);
+            
+            while(res.next()){
+                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)});
+                
+            }
+            TabelPembeliAdmin.setModel(mdl1);
+        } catch (SQLException e) {
+           System.out.println("Error : " + e.getMessage());
+        }
+        
+    }
+    
+    
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        // TODO add your handling code here:
+        tampil_sortId();
+        
+    }//GEN-LAST:event_btnCariActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -376,20 +553,28 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IdPembeli;
     private javax.swing.JPanel IsiDataPembeli;
     private javax.swing.JPanel IsiDataSaran;
+    private javax.swing.JPanel IsiDataTransaksi;
     private javax.swing.JPanel IsiMenuUtamaAdmin;
     private javax.swing.JPanel MenuUtamaAdmin;
     private javax.swing.JScrollPane TabelPembeli;
     private javax.swing.JTable TabelPembeliAdmin;
+    private javax.swing.JScrollPane TabelSaran;
     private javax.swing.JTable TabelSaranAdmin;
+    private javax.swing.JTable TabelTransaksiAdmin;
     private javax.swing.JPanel bodyPanel;
+    private javax.swing.JToggleButton btnCari;
     private javax.swing.JToggleButton btnKeluarAdmin;
     private javax.swing.JToggleButton btnKembaliAdmin;
     private javax.swing.JToggleButton btnTampilkanDataAdmin;
     private javax.swing.JToggleButton btnTampilkanDataSaran;
+    private javax.swing.JToggleButton btnTampilkanDataTransaksi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

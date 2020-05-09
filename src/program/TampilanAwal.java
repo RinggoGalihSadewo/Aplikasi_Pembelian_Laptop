@@ -295,11 +295,11 @@ public class TampilanAwal extends javax.swing.JFrame {
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Proses Simpan Data Berhasil..:");
-            //tampilkan_data();//
+            
 
         }
         catch (HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, "Daftar gagal, karena data tidak terisi semua atau Id_Produk sudah digunakan. Harap masukan lagi !");
+            JOptionPane.showMessageDialog(this, "Daftar gagal, karena data tidak terisi semua atau Id_Pembeli sudah digunakan. Harap masukan lagi !");
         }
     }//GEN-LAST:event_btnSimpanDataActionPerformed
 

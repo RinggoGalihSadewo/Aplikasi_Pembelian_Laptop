@@ -49,6 +49,7 @@ public class MenuUtama extends javax.swing.JFrame {
         btnKeluar = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         btnKembali = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
         IsiMenu = new javax.swing.JPanel();
         isiHome = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -71,21 +72,19 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnLaptop1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        btnLaptop2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -104,6 +103,17 @@ public class MenuUtama extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jToggleButton4 = new javax.swing.JToggleButton();
         IsiInformasi = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -131,14 +141,24 @@ public class MenuUtama extends javax.swing.JFrame {
         btnSimpanSaran = new javax.swing.JButton();
         btnTambahSaran = new javax.swing.JButton();
         jLabel68 = new javax.swing.JLabel();
-        txtIdSaran = new javax.swing.JTextField();
+        txtIdSaran = new javax.swing.JPasswordField();
+        IsiPesanan = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelPesanan = new javax.swing.JTable();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        IdPembeli = new javax.swing.JPasswordField();
+        btnTampilkanPesanan = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton5 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Utama");
 
         Menu.setBackground(new java.awt.Color(255, 153, 0));
 
-        btnLaptop.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnLaptop.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLaptop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-laptop-20.png"))); // NOI18N
         btnLaptop.setText("Beli Laptop");
         btnLaptop.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +167,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        btnSaran.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSaran.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-talk-20.png"))); // NOI18N
         btnSaran.setText("Berikan Saran");
         btnSaran.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +176,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        btnInformasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnInformasi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInformasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-profiles-20.png"))); // NOI18N
         btnInformasi.setText("Informasi Kami");
         btnInformasi.addActionListener(new java.awt.event.ActionListener() {
@@ -165,8 +185,8 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
+        btnKeluar.setBackground(new java.awt.Color(255, 0, 0));
         btnKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnKeluar.setForeground(new java.awt.Color(255, 0, 0));
         btnKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-shutdown-30.png"))); // NOI18N
         btnKeluar.setText("Keluar");
         btnKeluar.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +195,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnHome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-home-20.png"))); // NOI18N
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -184,11 +204,20 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        btnKembali.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnKembali.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnKembali.setText("Kembali");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKembaliActionPerformed(evt);
+            }
+        });
+
+        jToggleButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
+        jToggleButton2.setText("Pesanan");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
             }
         });
 
@@ -199,28 +228,31 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLaptop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnInformasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnKembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addComponent(btnKembali, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(84, 84, 84)
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnLaptop, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnSaran, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(btnInformasi, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(18, 18, 18)
+                .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
                 .addComponent(btnKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -296,7 +328,7 @@ public class MenuUtama extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, isiHomeLayout.createSequentialGroup()
-                .addContainerGap(364, Short.MAX_VALUE)
+                .addContainerGap(388, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel39)
@@ -340,7 +372,7 @@ public class MenuUtama extends javax.swing.JFrame {
                     .addGroup(isiHomeLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jLabel39)))
-                .addContainerGap(1776, Short.MAX_VALUE))
+                .addContainerGap(1838, Short.MAX_VALUE))
         );
 
         IsiMenu.add(isiHome, "card2");
@@ -359,8 +391,13 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Rp. 13.090.000");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
-        jButton6.setText("Beli");
+        btnLaptop1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
+        btnLaptop1.setText("Pesan");
+        btnLaptop1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaptop1ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoLaptop/Asus-ZenBook-Pro-Duo.jpg"))); // NOI18N
 
@@ -376,30 +413,17 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("Rp. 44.199.000");
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
-        jButton7.setText("Beli");
+        btnLaptop2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
+        btnLaptop2.setText("Pesan");
+        btnLaptop2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLaptop2ActionPerformed(evt);
+            }
+        });
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoLaptop/Dell-XPS-15-7590-UHD-4K-Ci7-9750H.jpg"))); // NOI18N
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel20.setText("Dell XPS 15 7590 UHD 4K i7 9750H");
-
-        jLabel21.setText("9th Generation Intel Core i7-9750H");
-
-        jLabel22.setText("NVIDIA GeForce GTX 1650 4 GB DDR5");
-
-        jLabel23.setText("16 GB DDR4 & 512 GB");
-
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel24.setText("Rp. 25.950.000");
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
-        jButton8.setText("Beli");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoLaptop/Omen-by-HP-15.jpg"))); // NOI18N
 
@@ -416,7 +440,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel30.setText("Rp. 15.999.000");
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
-        jButton9.setText("Beli");
+        jButton9.setText("Pesan");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -426,8 +450,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoLaptop/Asus-ROG-Zephyrus-S-GX701.jpg"))); // NOI18N
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel32.setText("HABIS");
+        jLabel32.setText("Asus ROG Zephyrus");
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoLaptop/Lenovo-ThinkPad-X1-Extreme.jpg"))); // NOI18N
 
@@ -438,13 +461,13 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jLabel36.setText("NVIDIA GeForce GTX 1050Ti");
 
-        jLabel37.setText("32 GB DDR4 & 1 TB SSD");
+        jLabel37.setText("32 GB DDR 4 & 1 TB SSD");
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel38.setText("Rp. 21.999.000");
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
-        jButton10.setText("Beli");
+        jButton10.setText("Pesan");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -452,6 +475,43 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FotoLaptop/Lenovo-Legion-Y7000-32ID-i7-9750H.jpg"))); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setText("Dell XPS 15 7590 UHD");
+
+        jLabel69.setText("Intel Core i7-8750H");
+
+        jLabel70.setText("NVIDIA GeForce RTX 2060");
+
+        jLabel71.setText("16 GB DDR4 & 512 GB");
+
+        jLabel72.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel72.setText("Rp. 30.000.000");
+
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
+        jToggleButton1.setText("Pesan");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel76.setText("9th Generation Intel Core i7-9750H");
+
+        jLabel77.setText("NVIDIA GeForce GTX 1650");
+
+        jLabel78.setText("16 GB DDR4 & 512 GB");
+
+        jLabel79.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel79.setText("Rp. 25.950.000");
+
+        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
+        jToggleButton4.setText("Pesan");
+        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout IsiLaptopLayout = new javax.swing.GroupLayout(IsiLaptop);
         IsiLaptop.setLayout(IsiLaptopLayout);
@@ -461,45 +521,40 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(IsiLaptopLayout.createSequentialGroup()
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiLaptopLayout.createSequentialGroup()
-                                    .addGap(145, 145, 145)
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10)
                                     .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel12)
                                         .addGroup(IsiLaptopLayout.createSequentialGroup()
                                             .addGap(10, 10, 10)
-                                            .addComponent(jButton6)))
-                                    .addGap(67, 67, 67))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiLaptopLayout.createSequentialGroup()
-                                    .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                            .addGap(127, 127, 127)
-                                            .addComponent(jLabel10))
-                                        .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                            .addGap(148, 148, 148)
-                                            .addComponent(jLabel8)))
-                                    .addGap(47, 47, 47))
-                                .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                    .addGap(148, 148, 148)
-                                    .addComponent(jLabel9)))
+                                            .addComponent(jLabel8))
+                                        .addComponent(jLabel9))))
                             .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                        .addComponent(jLabel21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel76))))
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(jLabel7))
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(jLabel11))
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(139, 139, 139)
                                 .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                        .addGap(116, 116, 116)
-                                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel20)
-                                            .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel22)
-                                                    .addComponent(jLabel21)))))
-                                    .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                        .addGap(109, 109, 109)
-                                        .addComponent(jLabel7))
-                                    .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                        .addGap(123, 123, 123)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(3, 3, 3)))
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnLaptop1))
+                                    .addComponent(jLabel12))))
+                        .addGap(22, 22, 22)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(IsiLaptopLayout.createSequentialGroup()
                                 .addGap(127, 127, 127)
@@ -528,16 +583,41 @@ public class MenuUtama extends javax.swing.JFrame {
                                                             .addComponent(jLabel38)))))))
                                     .addComponent(jLabel31)))
                             .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                .addGap(201, 201, 201)
-                                .addComponent(jLabel32))))
-                    .addGroup(IsiLaptopLayout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel23)
+                                .addGap(187, 187, 187)
+                                .addComponent(jLabel69))
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addGap(166, 166, 166)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel70)
+                                    .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel71)
+                                            .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jToggleButton1)
+                                                .addComponent(jLabel72))))))))
+                    .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiLaptopLayout.createSequentialGroup()
+                            .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                    .addGap(166, 166, 166)
+                                    .addComponent(jLabel78))
+                                .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                    .addGap(156, 156, 156)
+                                    .addComponent(jLabel24)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jToggleButton4)
+                                        .addComponent(jLabel79))))
+                            .addGap(26, 26, 26)
+                            .addComponent(jLabel23))
+                        .addGroup(IsiLaptopLayout.createSequentialGroup()
+                            .addGap(156, 156, 156)
                             .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton8)
-                                .addComponent(jLabel24)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                                .addComponent(jLabel20)
+                                .addComponent(jLabel77)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,7 +646,7 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(IsiLaptopLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton7))
+                                .addComponent(btnLaptop2))
                             .addComponent(jLabel18))
                         .addGap(143, 143, 143))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiLaptopLayout.createSequentialGroup()
@@ -576,11 +656,10 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addComponent(jLabel16)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, IsiLaptopLayout.createSequentialGroup()
-                        .addGap(123, 123, 123)
+                        .addGap(105, 105, 105)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
                                     .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -607,32 +686,41 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel69))
+                                .addGap(8, 8, 8)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel70))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel71))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnLaptop2)
+                                    .addComponent(jToggleButton1)))
+                            .addGroup(IsiLaptopLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(10, 10, 10)
                                 .addComponent(jLabel8)
-                                .addGap(3, 3, 3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6))
-                            .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(IsiLaptopLayout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel15))
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7))))
+                                .addComponent(btnLaptop1))))
                     .addGroup(IsiLaptopLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel7)))
@@ -644,31 +732,34 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(IsiLaptopLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel34)
-                                .addComponent(jLabel26))
+                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel26)
                             .addComponent(jLabel20))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(jLabel35))
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel76))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(jLabel36))
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel77))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
-                            .addComponent(jLabel37))
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel78))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel38))
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel79))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton8)
-                            .addComponent(jButton10)))
+                        .addGroup(IsiLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton10)
+                            .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(IsiLaptopLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel27)
@@ -680,7 +771,7 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9)))
-                .addContainerGap(1680, Short.MAX_VALUE))
+                .addContainerGap(1739, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiLaptop, "card3");
@@ -757,7 +848,7 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addComponent(jLabel58)))
                 .addGroup(IsiInformasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(IsiInformasiLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                         .addGroup(IsiInformasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiInformasiLayout.createSequentialGroup()
                                 .addComponent(jLabel61)
@@ -830,10 +921,12 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addComponent(jLabel63)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel64)))
-                .addContainerGap(1869, Short.MAX_VALUE))
+                .addContainerGap(1931, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiInformasi, "card5");
+
+        IsiSaran.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel65.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel65.setText("Masukan saran dan nama anda");
@@ -900,12 +993,12 @@ public class MenuUtama extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnSimpanSaran, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(IsiSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtIdSaran, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                                .addComponent(txtNamabagiansaran, javax.swing.GroupLayout.Alignment.LEADING))))
+                                .addComponent(txtIdSaran, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNamabagiansaran, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))))
                     .addGroup(IsiSaranLayout.createSequentialGroup()
                         .addGap(369, 369, 369)
                         .addComponent(jLabel65)))
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addContainerGap(417, Short.MAX_VALUE))
         );
         IsiSaranLayout.setVerticalGroup(
             IsiSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -931,10 +1024,104 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(IsiSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSimpanSaran)
                     .addComponent(btnTambahSaran))
-                .addContainerGap(1821, Short.MAX_VALUE))
+                .addContainerGap(1883, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiSaran, "card4");
+
+        IsiPesanan.setBackground(new java.awt.Color(255, 255, 255));
+
+        TabelPesanan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TabelPesanan);
+
+        jLabel73.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel73.setText("Isi Pesanan anda");
+
+        jLabel74.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel74.setText("Hanya untuk memastikan bahwa ini memang benar - benar anda");
+
+        jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel75.setText("Mohon masukan Id_Pembeli kembali :");
+
+        btnTampilkanPesanan.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnTampilkanPesanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-profiles-20.png"))); // NOI18N
+        btnTampilkanPesanan.setText("Tampilkan Pesanan");
+        btnTampilkanPesanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTampilkanPesananActionPerformed(evt);
+            }
+        });
+
+        jToggleButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
+        jToggleButton3.setText("Beli pesanan");
+
+        jToggleButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jToggleButton5.setText("Hapus Pesanan");
+        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout IsiPesananLayout = new javax.swing.GroupLayout(IsiPesanan);
+        IsiPesanan.setLayout(IsiPesananLayout);
+        IsiPesananLayout.setHorizontalGroup(
+            IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiPesananLayout.createSequentialGroup()
+                .addContainerGap(318, Short.MAX_VALUE)
+                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel74)
+                        .addComponent(jLabel73)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(IsiPesananLayout.createSequentialGroup()
+                            .addComponent(jLabel75)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(IsiPesananLayout.createSequentialGroup()
+                        .addComponent(jToggleButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jToggleButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTampilkanPesanan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(278, 278, 278))
+        );
+        IsiPesananLayout.setVerticalGroup(
+            IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IsiPesananLayout.createSequentialGroup()
+                .addGap(244, 244, 244)
+                .addComponent(jLabel73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel74)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel75)
+                    .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnTampilkanPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(IsiPesananLayout.createSequentialGroup()
+                        .addComponent(jToggleButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)))
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1872, Short.MAX_VALUE))
+        );
+
+        IsiMenu.add(IsiPesanan, "card6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1011,15 +1198,23 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        
+         this.dispose(); // mengeluarkan tampilan
+        
+        TransaksiLaptop3 L1 = new TransaksiLaptop3 ();
+        L1.setVisible(true);
+        
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        
+         this.dispose(); // mengeluarkan tampilan
+        
+        TransaksiLaptop4 L1 = new TransaksiLaptop4 ();
+        L1.setVisible(true);
+        
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void txtNamabagiansaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamabagiansaranActionPerformed
         // TODO add your handling code here:
@@ -1049,6 +1244,44 @@ public class MenuUtama extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanSaranActionPerformed
 
+   /* private void kosongkan_form(){
+        
+        IdPembeli.setEditable(true);
+        IdPembeli.setText(null);
+        NamaLaptop.setText(null);
+        .setText(null);
+        txtNoHp.setText(null);
+        txtEmail.setText(null);
+        
+    }*/
+    
+    private void tampilkan_pesanan(){
+        
+        DefaultTableModel mdl1 = new DefaultTableModel ();
+        mdl1.addColumn("NO ");
+        mdl1.addColumn("Id_Pembeli");
+        mdl1.addColumn("Nama Laptop ");
+        mdl1.addColumn("Harga ");
+        
+        try{
+            
+            int no = 1;
+            String sql = ("SELECT * from Transaksi");
+            java.sql.Connection con = (Connection) Config.configDB();
+            java.sql.Statement stm1 = con.createStatement();
+            java.sql.ResultSet res = stm1.executeQuery(sql);
+            
+            while(res.next()){
+                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3)});
+                
+            }
+            TabelPesanan.setModel(mdl1);
+      
+        } catch (HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    
     private void btnSaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaranActionPerformed
         // TODO add your handling code here:
         
@@ -1081,6 +1314,112 @@ public class MenuUtama extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnKembaliActionPerformed
+
+    private void btnLaptop1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaptop1ActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose(); // mengeluarkan tampilan
+        
+        TransaksiLaptop1 L1 = new TransaksiLaptop1 ();
+        L1.setVisible(true);
+        
+    }//GEN-LAST:event_btnLaptop1ActionPerformed
+
+    private void btnLaptop2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaptop2ActionPerformed
+        // TODO add your handling code here:
+        
+         this.dispose(); // mengeluarkan tampilan
+        
+        TransaksiLaptop2 L1 = new TransaksiLaptop2 ();
+        L1.setVisible(true);
+        
+    }//GEN-LAST:event_btnLaptop2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose(); // mengeluarkan tampilan
+        
+        TransaksiLaptop5 L1 = new TransaksiLaptop5 ();
+        L1.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void btnTampilkanPesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilkanPesananActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel mdl1 = new DefaultTableModel ();
+        mdl1.addColumn("NO ");
+        mdl1.addColumn("Id_Pembeli");
+        mdl1.addColumn("Nama Laptop ");
+        mdl1.addColumn("Harga ");
+        
+        try{
+            
+             if (IdPembeli.getText() .equals("") ){
+                JOptionPane.showMessageDialog(null, "Id_Pembeli tidak boleh kosong, coba masukan lagi !");
+            }
+            
+            int no = 1;
+            String sql = ("SELECT * from Transaksi WHERE Id_Pembeli = '"+IdPembeli.getText()+"'");
+            java.sql.Connection con = (Connection) Config.configDB();
+            java.sql.Statement stm1 = con.createStatement();
+            java.sql.ResultSet res = stm1.executeQuery(sql);
+            
+            while(res.next()){
+                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3)});
+                
+            }
+            TabelPesanan.setModel(mdl1);
+      
+        } catch (HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnTampilkanPesananActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        IsiMenu.removeAll();
+        IsiMenu.repaint();
+        IsiMenu.revalidate();
+        
+        //Menampilkan isi Home
+        IsiMenu.add(IsiPesanan);
+        IsiMenu.repaint();
+        IsiMenu.revalidate();
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose(); // mengeluarkan tampilan
+        
+        TransaksiLaptop6 L1 = new TransaksiLaptop6 ();
+        L1.setVisible(true);
+    }//GEN-LAST:event_jToggleButton4ActionPerformed
+
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+        // TODO add your handling code here:
+        
+       /* try{
+            
+            
+            String sql = ("DELETE * from Transaksi WHERE Id_Pembeli = '"+IdPembeli.getText()+"'");
+            java.sql.Connection con = (Connection) Config.configDB();
+            java.sql.Statement stm1 = con.createStatement();
+            java.sql.ResultSet res = stm1.executeQuery(sql);
+             JOptionPane.showMessageDialog(null, "Hapus data berhasil ");
+      
+        } catch (HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        tampilkan_pesanan();
+        kosongkan_form();
+        */
+        
+    }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1118,24 +1457,27 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField IdPembeli;
     private javax.swing.JPanel IsiInformasi;
     private javax.swing.JPanel IsiLaptop;
     private javax.swing.JPanel IsiMenu;
+    private javax.swing.JPanel IsiPesanan;
     private javax.swing.JPanel IsiSaran;
     private javax.swing.JPanel Menu;
+    private javax.swing.JTable TabelPesanan;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnInformasi;
     private javax.swing.JButton btnKeluar;
     private javax.swing.JToggleButton btnKembali;
     private javax.swing.JButton btnLaptop;
+    private javax.swing.JButton btnLaptop1;
+    private javax.swing.JButton btnLaptop2;
     private javax.swing.JButton btnSaran;
     private javax.swing.JButton btnSimpanSaran;
     private javax.swing.JButton btnTambahSaran;
+    private javax.swing.JToggleButton btnTampilkanPesanan;
     private javax.swing.JPanel isiHome;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1202,10 +1544,27 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txtIdSaran;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton5;
+    private javax.swing.JPasswordField txtIdSaran;
     private javax.swing.JTextField txtNamabagiansaran;
     private javax.swing.JTextField txtSaran;
     // End of variables declaration//GEN-END:variables
