@@ -5,6 +5,7 @@
  */
 package program;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -97,6 +98,7 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
         DefaultTableModel mdl1 = new DefaultTableModel ();
         mdl1.addColumn("NO ");
         mdl1.addColumn("Id_Pembeli ");
+        mdl1.addColumn("Kode_Laptop ");
         mdl1.addColumn("Nama Laptop ");
         mdl1.addColumn("Harga ");
         
@@ -109,7 +111,7 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
             java.sql.ResultSet res = stm1.executeQuery(sql);
             
             while(res.next()){
-                mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3)});
+                mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3), res.getString(4)});
                 
             }
             
@@ -269,32 +271,37 @@ public class MenuUtamaAdmin extends javax.swing.JFrame {
         IsiDataPembeliLayout.setHorizontalGroup(
             IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataPembeliLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TabelPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(IsiDataPembeliLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(475, 475, 475)))
+                .addGap(50, 50, 50))
+            .addGroup(IsiDataPembeliLayout.createSequentialGroup()
+                .addGap(192, 192, 192)
                 .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(IsiDataPembeliLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(TabelPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
+                        .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         IsiDataPembeliLayout.setVerticalGroup(
             IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiDataPembeliLayout.createSequentialGroup()
-                .addContainerGap(164, Short.MAX_VALUE)
+                .addContainerGap(135, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TabelPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(IsiDataPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
+                .addGap(133, 133, 133))
         );
 
         IsiMenuUtamaAdmin.add(IsiDataPembeli, "card2");

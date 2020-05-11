@@ -62,7 +62,7 @@ public class TampilanLoginAdmin extends javax.swing.JFrame {
         jLabel1.setText("LOGIN SEBAGAI ADMIN");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Masukan Usename :");
+        jLabel2.setText("Masukan Username :");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Masukan Password :");
@@ -167,11 +167,7 @@ public class TampilanLoginAdmin extends javax.swing.JFrame {
             }
             else {
                 
-                /*st = conn.createStatement();
-                String sql =("SELECT * FROM pembeli WHERE Id_Pembeli ='"+txtLogin.getText()+"'");
-                java.sql.Connection con = (Connection) Config.configDB();
-                java.sql.Statement stm = con.createStatement();
-                java.sql.ResultSet res = stm.executeQuery(sql);*/
+             
                 
                 if (user.equals(username) && pass.equals(password)){ //pengecekan jika username dan password == akun admin
                     this.dispose(); 

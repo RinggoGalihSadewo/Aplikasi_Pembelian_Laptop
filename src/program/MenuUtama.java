@@ -146,12 +146,14 @@ public class MenuUtama extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelPesanan = new javax.swing.JTable();
         jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
         IdPembeli = new javax.swing.JPasswordField();
         btnTampilkanPesanan = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
+        btnHapus = new javax.swing.JToggleButton();
+        jLabel80 = new javax.swing.JLabel();
+        Hapuskode = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Utama");
@@ -372,7 +374,7 @@ public class MenuUtama extends javax.swing.JFrame {
                     .addGroup(isiHomeLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jLabel39)))
-                .addContainerGap(1838, Short.MAX_VALUE))
+                .addContainerGap(1892, Short.MAX_VALUE))
         );
 
         IsiMenu.add(isiHome, "card2");
@@ -771,7 +773,7 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9)))
-                .addContainerGap(1739, Short.MAX_VALUE))
+                .addContainerGap(1793, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiLaptop, "card3");
@@ -921,7 +923,7 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addComponent(jLabel63)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel64)))
-                .addContainerGap(1931, Short.MAX_VALUE))
+                .addContainerGap(1985, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiInformasi, "card5");
@@ -1024,7 +1026,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(IsiSaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSimpanSaran)
                     .addComponent(btnTambahSaran))
-                .addContainerGap(1883, Short.MAX_VALUE))
+                .addContainerGap(1937, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiSaran, "card4");
@@ -1047,11 +1049,8 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel73.setText("Isi Pesanan anda");
 
-        jLabel74.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel74.setText("Hanya untuk memastikan bahwa ini memang benar - benar anda");
-
         jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel75.setText("Mohon masukan Id_Pembeli kembali :");
+        jLabel75.setText("Masukan Id_Pembeli untuk menampilkan pesanan anda :");
 
         btnTampilkanPesanan.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnTampilkanPesanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-profiles-20.png"))); // NOI18N
@@ -1065,60 +1064,84 @@ public class MenuUtama extends javax.swing.JFrame {
         jToggleButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-buy-20.png"))); // NOI18N
         jToggleButton3.setText("Beli pesanan");
-
-        jToggleButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jToggleButton5.setText("Hapus Pesanan");
-        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton5ActionPerformed(evt);
+                jToggleButton3ActionPerformed(evt);
             }
         });
+
+        btnHapus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnHapus.setText("Hapus Pesanan");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
+
+        Hapuskode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapuskodeActionPerformed(evt);
+            }
+        });
+
+        jLabel81.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel81.setText("Masukan Kode_Laptop untuk menghapus pesanan :");
 
         javax.swing.GroupLayout IsiPesananLayout = new javax.swing.GroupLayout(IsiPesanan);
         IsiPesanan.setLayout(IsiPesananLayout);
         IsiPesananLayout.setHorizontalGroup(
             IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiPesananLayout.createSequentialGroup()
-                .addContainerGap(318, Short.MAX_VALUE)
-                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel74)
-                        .addComponent(jLabel73)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(IsiPesananLayout.createSequentialGroup()
-                            .addComponent(jLabel75)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(IsiPesananLayout.createSequentialGroup()
+                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(IsiPesananLayout.createSequentialGroup()
-                        .addComponent(jToggleButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(500, 500, 500)
+                        .addComponent(jLabel80))
+                    .addGroup(IsiPesananLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
                         .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTampilkanPesanan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(278, 278, 278))
+                            .addGroup(IsiPesananLayout.createSequentialGroup()
+                                .addComponent(jLabel75)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(IsiPesananLayout.createSequentialGroup()
+                                .addComponent(jLabel81)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Hapuskode, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnHapus)
+                            .addComponent(btnTampilkanPesanan)
+                            .addComponent(jToggleButton3))))
+                .addContainerGap(228, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IsiPesananLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel73)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(287, 287, 287))
         );
         IsiPesananLayout.setVerticalGroup(
             IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IsiPesananLayout.createSequentialGroup()
-                .addGap(244, 244, 244)
+                .addGap(269, 269, 269)
                 .addComponent(jLabel73)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel74)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
-                    .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnTampilkanPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(IsiPesananLayout.createSequentialGroup()
-                        .addComponent(jToggleButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)))
-                .addGap(18, 18, 18)
-                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1872, Short.MAX_VALUE))
+                    .addComponent(IdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTampilkanPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel80)
+                .addGap(14, 14, 14)
+                .addGroup(IsiPesananLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel81)
+                    .addComponent(Hapuskode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1886, Short.MAX_VALUE))
         );
 
         IsiMenu.add(IsiPesanan, "card6");
@@ -1244,6 +1267,44 @@ public class MenuUtama extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanSaranActionPerformed
 
+        private void tampil_pesanansortid(){
+        
+        DefaultTableModel mdl1 = new DefaultTableModel ();
+        mdl1.addColumn("NO ");
+        mdl1.addColumn("Id_Pembeli ");
+        mdl1.addColumn("Kode_Laptop ");
+        mdl1.addColumn("Nama Laptop ");
+        mdl1.addColumn("Harga ");
+        
+        
+        try{
+            
+             if (IdPembeli.getText() .equals("") ){
+                JOptionPane.showMessageDialog(null, "Id_Pembeli tidak boleh kosong, coba masukan lagi !");
+            }
+             else {
+           
+            int no = 1;
+            String sql = ("SELECT * from transaksi WHERE Id_Pembeli = '"+IdPembeli.getText()+"'");
+            java.sql.Connection con = (Connection) Config.configDB();
+            java.sql.Statement stm1 = con.createStatement();
+            java.sql.ResultSet res = stm1.executeQuery(sql);
+            
+           
+            while(res.next()){
+                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3), res.getString(4)});
+                
+            }
+            TabelPesanan.setModel(mdl1);
+            } 
+           
+        }            
+            catch (SQLException e) {
+           System.out.println("Error : " + e.getMessage());
+        }
+        
+    }
+    
    /* private void kosongkan_form(){
         
         IdPembeli.setEditable(true);
@@ -1259,7 +1320,8 @@ public class MenuUtama extends javax.swing.JFrame {
         
         DefaultTableModel mdl1 = new DefaultTableModel ();
         mdl1.addColumn("NO ");
-        mdl1.addColumn("Id_Pembeli");
+        mdl1.addColumn("Id_Pembeli ");
+        mdl1.addColumn("Kode_Pesanan ");
         mdl1.addColumn("Nama Laptop ");
         mdl1.addColumn("Harga ");
         
@@ -1272,7 +1334,7 @@ public class MenuUtama extends javax.swing.JFrame {
             java.sql.ResultSet res = stm1.executeQuery(sql);
             
             while(res.next()){
-                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3)});
+                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3), res.getString(4)});
                 
             }
             TabelPesanan.setModel(mdl1);
@@ -1349,32 +1411,8 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         DefaultTableModel mdl1 = new DefaultTableModel ();
-        mdl1.addColumn("NO ");
-        mdl1.addColumn("Id_Pembeli");
-        mdl1.addColumn("Nama Laptop ");
-        mdl1.addColumn("Harga ");
-        
-        try{
-            
-             if (IdPembeli.getText() .equals("") ){
-                JOptionPane.showMessageDialog(null, "Id_Pembeli tidak boleh kosong, coba masukan lagi !");
-            }
-            
-            int no = 1;
-            String sql = ("SELECT * from Transaksi WHERE Id_Pembeli = '"+IdPembeli.getText()+"'");
-            java.sql.Connection con = (Connection) Config.configDB();
-            java.sql.Statement stm1 = con.createStatement();
-            java.sql.ResultSet res = stm1.executeQuery(sql);
-            
-            while(res.next()){
-                 mdl1.addRow(new Object[]{no++,res.getString(1), res.getString(2), res.getString(3)});
-                
-            }
-            TabelPesanan.setModel(mdl1);
-      
-        } catch (HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
+       
+        tampil_pesanansortid();
         
     }//GEN-LAST:event_btnTampilkanPesananActionPerformed
 
@@ -1389,6 +1427,7 @@ public class MenuUtama extends javax.swing.JFrame {
         IsiMenu.add(IsiPesanan);
         IsiMenu.repaint();
         IsiMenu.revalidate();
+        
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
@@ -1400,26 +1439,37 @@ public class MenuUtama extends javax.swing.JFrame {
         L1.setVisible(true);
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
-    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
         
-       /* try{
-            
-            
-            String sql = ("DELETE * from Transaksi WHERE Id_Pembeli = '"+IdPembeli.getText()+"'");
+        try{
+                
+            String sql = ("DELETE from Transaksi WHERE Kode_Pesanan = '"+Hapuskode.getText()+"'");
             java.sql.Connection con = (Connection) Config.configDB();
-            java.sql.Statement stm1 = con.createStatement();
-            java.sql.ResultSet res = stm1.executeQuery(sql);
-             JOptionPane.showMessageDialog(null, "Hapus data berhasil ");
-      
+            java.sql.PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Hapus data berhasil ");
+            tampil_pesanansortid();
         } catch (HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-        tampilkan_pesanan();
-        kosongkan_form();
-        */
         
-    }//GEN-LAST:event_jToggleButton5ActionPerformed
+           
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        JOptionPane.showMessageDialog(this, "Terimakasih sudah membeli !");
+        this.dispose();
+        
+        TampilanAwal awal = new TampilanAwal ();
+        awal.setVisible(true);
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
+
+    private void HapuskodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapuskodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HapuskodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1457,6 +1507,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Hapuskode;
     private javax.swing.JPasswordField IdPembeli;
     private javax.swing.JPanel IsiInformasi;
     private javax.swing.JPanel IsiLaptop;
@@ -1465,6 +1516,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel IsiSaran;
     private javax.swing.JPanel Menu;
     private javax.swing.JTable TabelPesanan;
+    private javax.swing.JToggleButton btnHapus;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnInformasi;
     private javax.swing.JButton btnKeluar;
@@ -1550,20 +1602,20 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JPasswordField txtIdSaran;
     private javax.swing.JTextField txtNamabagiansaran;
     private javax.swing.JTextField txtSaran;

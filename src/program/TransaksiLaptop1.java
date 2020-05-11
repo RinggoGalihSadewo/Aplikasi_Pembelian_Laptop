@@ -44,6 +44,9 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         tbnBeli = new javax.swing.JToggleButton();
         txtIdPembeli = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        KodePesanan = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -103,6 +106,18 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Masukan Kode_Laptop :");
+
+        KodePesanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KodePesananActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel6.setText("*Bebas");
+
         javax.swing.GroupLayout Laptop1Layout = new javax.swing.GroupLayout(Laptop1);
         Laptop1.setLayout(Laptop1Layout);
         Laptop1Layout.setHorizontalGroup(
@@ -129,10 +144,17 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
                         .addComponent(Harga))
                     .addGroup(Laptop1Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                        .addGroup(Laptop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(9, 9, 9)
+                        .addGroup(Laptop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Laptop1Layout.createSequentialGroup()
+                                .addComponent(KodePesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))
+                            .addComponent(txtIdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(157, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Laptop1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tbnBeli)
@@ -154,11 +176,16 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Harga)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(Laptop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtIdPembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Laptop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(KodePesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(3, 3, 3)
                 .addComponent(tbnBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -195,7 +222,7 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
         
         try {
 
-            String sql = "INSERT INTO Transaksi VALUES ('"+txtIdPembeli.getText()+"','"+NamaLaptop.getText()+"','"+Harga.getText()+"')";
+            String sql = "INSERT INTO Transaksi VALUES ('"+txtIdPembeli.getText()+"','"+KodePesanan.getText()+"','"+NamaLaptop.getText()+"','"+Harga.getText()+"')";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -214,6 +241,10 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_tbnBeliActionPerformed
+
+    private void KodePesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KodePesananActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KodePesananActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,13 +283,16 @@ public class TransaksiLaptop1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Harga;
+    private javax.swing.JTextField KodePesanan;
     private javax.swing.JPanel Laptop1;
     private javax.swing.JLabel NamaLaptop;
     private javax.swing.JToggleButton btnKembali;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToggleButton tbnBeli;
